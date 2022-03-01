@@ -1,0 +1,64 @@
+.article {
+    display: block;
+    font-family: verdana, arial;
+    margin: 5px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 280px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.article-image {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+}
+.article-title {
+    font-size: medium;
+    width: 100%;
+    height: auto;
+    color: #2f4f4f;
+}
+.article-summary {
+    font-size: x-small;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    color: #2f4f4f;
+    float: right;
+}
+.article-source {
+    font-size: x-small;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    color: #2f4f4f;
+}
+.article-url {
+    font-size: x-small;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    color: #2f4f4f;
+}
+
+
+.article-left {
+    float: left;
+    width: 30%;
+    min-width: 240px;
+    padding: 10px;
+    height: auto;
+}
+
+.article-right {
+    float: right;
+    width: 70%;
+    padding: 10px;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+

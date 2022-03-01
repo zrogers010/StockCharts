@@ -1,0 +1,17 @@
+.stock-stats {
+    display: block;
+    font-family: verdana, arial;
+    font-size: small;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+}
+.wrapper span {
+    margin: 1px;
+}
+.bold {
+    font-weight: bold;
+}

@@ -1,0 +1,45 @@
+.stock-details {
+    display: block;
+    font-family: verdana, arial;
+    font-size: small;
+}
+.stock-desc {
+    margin: 2px;
+    padding: 2px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+}
+.wrapper span {
+    margin: 1px;
+}
+.ceo {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 2px;
+    padding: 2px;
+}
+.employees {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 2px;
+    padding: 2px;
+}
+.headquarters {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 2px;
+    padding: 2px;
+}
+.founded {
+    grid-column: 4;
+    grid-row: 1;
+    margin: 2px;
+    padding: 2px;
+}
+.bold {
+    font-weight: bold;
+}

@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column-chart {
+    float: left;
+    width: 65%;
+    padding: 10px;
+    height: auto;
+}
+
+.column-stats {
+    float: right;
+    width: 35%;
+    padding: 10px;
+    height: auto;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: auto;
+}

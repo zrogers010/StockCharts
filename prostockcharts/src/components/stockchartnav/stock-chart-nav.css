@@ -1,0 +1,28 @@
+.linebar-nav-bar-container-light {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    height: 60px;
+  }
+  
+.linechart-nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    list-style-type: none;
+    padding: 5px;
+    margin-left: 10px;
+}
+.linechart-period {
+    font-size: 12px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.adv-chart {
+    float: right;
+}

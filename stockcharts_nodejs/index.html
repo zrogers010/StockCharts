@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Fix for iOS Safari zooming bug -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <meta name="description" content="Professional stockcharts and financial analysis data for free.">
+    <meta name="keywords" content="Stocks,Stockcharts,Charts,Stockmarket,Analysis,Freestockcharts">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <style>
+        body, html, .container-fluid {
+            height: 100%;
+            min-height: 100%;
+            max-height: 100% !important;
+            margin: 0;
+            font-family: verdana, arial;
+        }
+        iframe {
+            /*height: inherit;*/
+            /*max-height: inherit !important;*/
+            height: calc(100% - 40px)
+        }
+        .body {
+            height: 100%;
+            box-sizing: border-box;
+            padding-top: 60px;
+            color: #2f4f4f;
+            top: 0;
+            z-index: 1;
+        }
+        .navbar {
+            height: 40px;
+            position: absolute;
+            padding-left: 20px;
+            padding-left: 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .leftside {
+            float: left;
+            width: 70%;
+        }
+
+        .rightside {
+            float: left;
+            width: 30%;
+            height: 100%;
+            padding-left: 20px;
+        }
+
+        .headline {
+            display: inline-block;
+            verticle-align: top;
+            margin: 10px;
+            padding-bottom: 15px;
+            height-min:220px;
+            border: 1px solid #e8e8e8;
+        }
+
+
+        .hlarticle {
+            display: inline-block;
+            verticle-align: top;
+            font-family: verdana, arial;
+            margin: 10px;
+            width: 100%;
+            height-min: 220px;
+
+        }
+
+        .article {
+            display: inline-block;
+            verticle-align: middle;
+            font-family: verdana, arial;
+            margin: 10px;
+            padding-bottom: 15px;
+            width: 100%;
+            height: 100%;
+            height-min: 175px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .image {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px;
+            float: left;
+        }
+
+        .meta {
+            display: inline-block;
+            verticle-align: top;
+            margin: 5px;
+            padding: 5px;
+            padding-left: 15px;
+            width-min: 180px;
+            height-min: 100px;
+            /*float: right;*/
+
+        }
+
+        .author {
+            display: block;
+            font-size: xx-small;
+            padding: 5px;
+            color: #2f4f4f;
+        }
+
+        .title {
+            font-size: medium;
+            color: #2f4f4f;
+        }
+
+        .description {
+            font-size: x-small;
+            padding: 5px;
+            color: #2f4f4f;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+
+            // news sources.
+            const SOURCES = ['bbc-news','bloomberg','business-insider','cnbc', 'cnn','reuters','techcrunch','the-wall-street-journal'];
+            // articles oldest date 10 days ago.
+            var start_date = new Date();
+
+            start_date.setDate(start_date.getDate() - 12);
+            console.log(start_date.toString());
+            const START_DATE = new Date(Date.now() - 24 * 3600 * 1000 * 10).toString();
+            console.log(START_DATE);
+            var api_url = 'https://newsapi.org/v2/top-headlines?' +
+                'pageSize=100&' +
+                'sources=' + SOURCES.join(',') + '&' +
+                //'from=2019-05-01&' +
+                'from=' + START_DATE + '&' +
+                'apiKey=2b4c2cc31b1a4cb49570da3e4ed77644';
+
+            $.ajax({
+                url: api_url,
+                method: "GET",
+                error: function() {
+                    console.log("error");
+                },
+                success: function(data) {
+                    processData(data);
+                }
+            });
+
+            function processData(data) {
+                console.log(" processData() ");
+                console.log(data);
+                var articleItems = [];
+
+                // Get main headline article.
+                var hlarticle_div = $(
+                    '<a class="hlarticle" href="' + data.articles[0].url + '" title="' + data.articles[0].title + '">' +
+                    '<div class="image">' +
+                    '<img width="320" height="200" src="' + data.articles[0].urlToImage + '">' +
+                    '</div>' +
+                    '<div class="meta">' +
+                    '<h4 class="title">' + data.articles[0].title + '</h4>' +
+                    '<div class="author"><time>' + data.articles[0].publishedAt + '</time> | ' + data.articles[0].author + '</div>' +
+                    '<p class="description">' + data.articles[0].description + '</p>' +
+                    '</div>' +
+                    '</a>'
+                );
+
+                $(".headline").append(hlarticle_div);
+
+                // Populate news feed.
+                for (var i = 1; i < data.articles.length; i++) {
+                    var author = data.articles[i].author;
+                    var title = data.articles[i].title;
+                    var description = data.articles[i].description;
+                    var artUrl = data.articles[i].url;
+                    var imgUrl = data.articles[i].urlToImage;
+                    var pubDate = data.articles[i].publishedAt;
+
+                    var article_div = $(
+                        '<a class="article" href="' + data.articles[i].url + '" title="' + data.articles[i].title + '">' +
+                        '<div class="image">' +
+                        '<img width="200" height="125" src="' + data.articles[i].urlToImage + '">' +
+                        '</div>' +
+                        '<div class="meta">' +
+                        '<h4 class="title">' + data.articles[i].title + '</h4>' +
+                        '<div class="author"><time>' + data.articles[i].publishedAt + '</time> | ' + data.articles[i].author + '</div>' +
+                        '<p class="description">' + data.articles[i].description + '</p>' +
+                        '</div>' +
+                        '</a>'
+                    );
+
+                    $(".wrapper").append(article_div);
+                }
+            }
+        });
+
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+        <div class="navbar-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="/">ProStockCharts</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/news">News</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/crypto">Crypto Currencies</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="body">
+        <div class="ticker">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                        {
+                            "description": "Dow Jones 30",
+                            "proName": "DJ:DJI"
+                        },
+                        {
+                            "description": "S&P 500",
+                            "proName": "SP:SPX"
+                        },
+                        {
+                            "description": "EUR/USD",
+                            "proName": "OANDA:EURUSD"
+                        },
+                        {
+                            "description": "BTC/USD",
+                            "proName": "COINBASE:BTCUSD"
+                        },
+                        {
+                            "description": "Gold",
+                            "proName": "TVC:GOLD"
+                        },
+                        {
+                            "description": "WTI Crude Oil",
+                            "proName": "TVC:USOIL"
+                        }
+                    ],
+                        "colorTheme": "light",
+                        "isTransparent": false,
+                        "displayMode": "adaptive",
+                        "locale": "en"
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+        <div class="leftside">
+            <div class="headline"></div>
+            <div class="wrapper">
+                <h5>Headlines</h5>
+            </div>
+        </div>
+        <div class="rightside">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/stocks-usa/market-movers-gainers/" rel="noopener" target="_blank"><span class="blue-text">Stock Market</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                    {
+                        "exchange": "US",
+                        "showChart": true,
+                        "locale": "en",
+                        "width": "100%",
+                        "height": "100%",
+                        "largeChartUrl": "",
+                        "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+                        "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+                        "gridLineColor": "rgba(242, 243, 245, 1)",
+                        "scaleFontColor": "rgba(131, 136, 141, 1)",
+                        "belowLineFillColorGrowing": "rgba(5, 122, 205, 0.12)",
+                        "belowLineFillColorFalling": "rgba(5, 122, 205, 0.12)",
+                        "symbolActiveColor": "rgba(225, 239, 249, 1)"
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

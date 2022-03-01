@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Fix for iOS Safari zooming bug -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <meta name="description" content="Professional stockcharts and financial analysis data for free.">
+    <meta name="keywords" content="Stocks,Stockcharts,Charts,Stockmarket,Analysis,Freestockcharts">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <style>
+        body, html, .container-fluid {
+            height: 100%;
+            min-height: 100%;
+            max-height: 100% !important;
+            margin: 0;
+            font-family: verdana, arial;
+        }
+        iframe {
+            /*height: inherit;*/
+            /*max-height: inherit !important;*/
+            height: calc(100% - 40px)
+        }
+        .body {
+            height: 100%;
+            box-sizing: border-box;
+            padding-top: 60px;
+            color: #2f4f4f;
+            top: 0;
+            z-index: 1;
+            font-family: verdana, arial;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 5px;
+            font-size: small;
+            font-family: verdana, arial;
+        }
+
+        .navbar {
+            height: 40px;
+            position: absolute;
+            padding-left: 20px;
+            padding-left: 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .leftside {
+            float: left;
+            width: 70%;
+        }
+
+        .rightside {
+            float: left;
+            width: 30%;
+            height: 100%;
+            padding-left: 20px;
+        }
+
+
+        .hlarticle {
+            display: block;
+            font-family: verdana, arial;
+            margin: 5px;
+            width: 100%;
+            height: 220px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .article {
+            display: block;
+            font-family: verdana, arial;
+            margin: 5px;
+            padding-bottom: 15px;
+            width: 100%;
+            height: 100%;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .image {
+            display: block;
+            margin: 5px;
+            padding: 5px;
+            float: left;
+        }
+
+        .meta {
+            display: block;
+            margin: 5px;
+            padding: 5px;
+            padding-left: 15px;
+        }
+
+        .author {
+            display: block;
+            font-size: xx-small;
+            padding: 5px;
+            color: #2f4f4f;
+        }
+
+        .title {
+            font-size: medium;
+            color: #2f4f4f;
+        }
+
+        .description {
+            font-size: x-small;
+            padding: 5px;
+            color: #2f4f4f;
+        }
+
+        td.posval {
+            color: green;
+        }
+
+        td.negval {
+            color: #D94040;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+
+            $.ajax({
+                url: "public/crypto_data.json",
+                method: "GET",
+                dataType: "json",
+                error: function(xhr, status, error) {
+                    console.log("error");
+                    console.log(status);
+                    console.log(error);
+                },
+                success: function(data) {
+                    console.log("success");
+                    processData(data);
+                }
+            });
+
+            function processData(data) {
+                console.log(" processData() ");
+                console.log(data);
+
+                // Populate currency details
+                for (var i = 0; i < data.data.length; i++) {
+                    var rank = data.data[i].cmc_rank;
+                    var symbol = data.data[i].symbol;
+                    var name = data.data[i].name;
+                    var supply = Math.round(data.data[i].circulating_supply);
+                    var max_supply = Math.round(data.data[i].max_supply);
+                    var market_cap = Math.round(data.data[i].quote.USD.market_cap);
+                    var volume_24h = Math.round(data.data[i].quote.USD.volume_24h);
+                    var percent_change_1h = Number(data.data[i].quote.USD.percent_change_1h).toFixed(2);
+                    var percent_change_7d = Number(data.data[i].quote.USD.percent_change_7d).toFixed(2);
+                    var percent_change_24h = Number(data.data[i].quote.USD.percent_change_24h).toFixed(2);
+                    var last_updated = data.data[i].quote.USD.last_updated;
+                    // set price format.
+                    var priceval = Number(data.data[i].quote.USD.price).toFixed(4);
+                    if(priceval < 1.00) {
+                        price = Number(priceval).toFixed(6);
+                    } else price = Number(priceval).toFixed(2);
+
+                    var pc_24h_div = '';
+                    if(percent_change_24h < 0) {
+                        pc_24h_div = '<td class="negval text-right">' + numberWithCommas(percent_change_24h) + '%</td>';
+                    } else pc_24h_div = '<td class="posval text-right">' + numberWithCommas(percent_change_24h) + '%</td>';
+
+                    console.log(rank);
+                    console.log(symbol);
+                    console.log(name);
+                    console.log(supply);
+                    console.log(price);
+                    console.log(numberWithCommas(market_cap));
+                    console.log(volume_24h);
+                    console.log(percent_change_24h);
+
+                    var crypto_body = $(
+                        '<tr class="token_details" id="id-' + name + '">' +
+                        '<td>' + rank + '</td>' +
+                        //'<td><b>' + name + '</b>' +
+                        '<td><img data-src="/data/logos/' + symbol.toLowerCase() + '.png" class="logo-sprite lazyload" alt="' + symbol + '" height="16" width="16">' + name + '</td>' +
+                        // '<span class="currency-symbol visible-xs"><a class="link-secondary" href="/currencies/zcoin/">XZC</a></span> + '</td>' +
+                        '<td>' + symbol + '</td>' +
+                        '<td class="text-right">$' + numberWithCommas(price) + '</td>' +
+                        '<td class="text-right">$' + numberWithCommas(market_cap) + '</td>' +
+                        '<td class="text-right">$' + numberWithCommas(volume_24h) + '</td>' +
+                        '<td class="text-right">' + numberWithCommas(supply) + ' ' + symbol + '</td>' +
+                        pc_24h_div +
+                        '</tr>'
+                    );
+
+                    $("#crypto-table tbody").append(crypto_body);
+                }
+            }
+        });
+
+        //
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top">
+        <div class="navbar-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="/">ProStockCharts</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/news">News</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li class="active"><a href="/crypto">Crypto Currencies</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="body">
+        <div class="leftside">
+            <div class="headline"></div>
+            <div class="crypto-wrapper">
+                <table id="crypto-table">
+                    <thead>
+                    <tr>
+                        <th class="col-rank sortable">Ranking</th>
+                        <th id="th-symbol" class="sortable">Name</th>
+                        <th id="th-name" class="sortable">Symbol</th>
+                        <th id="th-price" class="sortable text-right">Price</th>
+                        <th id="th-marketcap" class="sortable text-right" data-mobile-text="M. Cap">Market Cap</th>
+                        <th id="th-volume" class="sortable text-right" data-mobile-text="Volume">Volume (24h)</th>
+                        <th id="th-totalsupply" class="sortable text-right" title="The number of coins in existence available to the public" data-mobile-text="Supply">Circulating Supply</th>
+                        <th id="th-change" class="sortable text-right" data-mobile-text="Change">Change (24h)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="rightside">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
