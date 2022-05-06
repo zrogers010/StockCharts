@@ -22,9 +22,7 @@ export const lineChart = {
 			const formattedData = []
 			const ts = new Date(data[i].updated)
             const date = ts.toLocaleString('en-US', { timezone: 'UTC' });	
-			//formattedData[0] = moment(data[i].updated).format('MM/DD/YYYY')
-			//formattedData[0] = data[i].updated.toLocaleDateString("en-us")
-			//formattedData[0] = data[i].updated
+
 			formattedData[0] = date
 			formattedData[1] = data[i].high
 			formattedData[2] = data[i].low

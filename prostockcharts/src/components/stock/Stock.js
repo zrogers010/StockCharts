@@ -18,6 +18,8 @@ class Stock extends Component {
 		this.state = {
 			data: {}
 		}
+        
+        //const [val, setVal] = 
 	}
 	
 	render() {
