@@ -14,14 +14,16 @@ export default function Searchbox() {
     };
   
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="search symbol"
-                value={symbol}
-                onChange={e => setSymbol(e.target.value)}
-            />
-            <button type="submit">Search</button>
-        </form>
+        <div className="search-input">
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="search symbol"
+                    value={symbol}
+                    onChange={e => setSymbol(e.target.value)}
+                />
+                <button type="submit">Search</button>
+            </form>
+        </div>
     );
 };

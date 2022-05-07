@@ -1,7 +1,14 @@
 .stock-stats {
     display: block;
+    color: #293241;
     font-family: verdana, arial;
-    font-size: small;
+    font-size: small;    
+}
+.key-stats {
+    color: #01497c;
+    font-family: verdana, arial;
+    font-size: medium;
+    font-weight: bold;
 }
 .wrapper {
     display: grid;
@@ -13,5 +20,17 @@
     margin: 1px;
 }
 .bold {
+    font-weight: bold;
+}
+
+.stats-item {
+    color: #01497c;
+    font-family: verdana, arial;
+    font-size: small;
+}
+
+.stats-name {
+    font-family: verdana, arial;
+    font-size: small;
     font-weight: bold;
 }

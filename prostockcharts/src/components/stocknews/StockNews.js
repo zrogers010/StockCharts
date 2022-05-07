@@ -15,9 +15,6 @@ class StockNews extends Component {
 		this.setState({
 			data: data
 		})
-		console.log("news!")
-		console.log(this.state.data)
-		console.log(this.state.data[0])	
 	}
 		
 	componentDidMount() {

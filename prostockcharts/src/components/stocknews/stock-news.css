@@ -17,14 +17,18 @@
     font-size: medium;
     width: 100%;
     height: auto;
-    color: #2f4f4f;
+    color: #293241;
+}
+
+.article-title a {
+    color: #293241;
 }
 .article-summary {
     font-size: x-small;
     padding: 5px;
     width: 100%;
     height: auto;
-    color: #2f4f4f;
+    color: #293241;
     float: right;
 }
 .article-source {
@@ -32,14 +36,14 @@
     padding: 5px;
     width: 100%;
     height: auto;
-    color: #2f4f4f;
+    color: #293241;
 }
 .article-url {
     font-size: x-small;
     padding: 5px;
     width: 100%;
     height: auto;
-    color: #2f4f4f;
+    color: #293241;
 }
 
 

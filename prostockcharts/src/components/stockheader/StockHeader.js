@@ -29,12 +29,12 @@ class StockHeader extends Component {
 		let displayChange = ((change < 0) ? change : '+' + change);
 
 		return (
-			<div className = "stock-header">
-				<div>
-					<h2>{this.state.data.companyName} ({this.state.data.symbol})</h2>
+			<div className="stock-header">
+				<div className="company-name">
+					<p>{this.state.data.companyName} ({this.state.data.symbol})</p>
 				</div>
-				<div>
-					<h3>${latestPrice} {displayChange} ({percentChange.toFixed(2)}%)</h3>
+				<div className="company-quote">
+					<p>${latestPrice} {displayChange} ({percentChange.toFixed(2)}%)</p>
 				</div>
 			</div>				
 		)

@@ -7,7 +7,8 @@ import StockDetails from '../stockdetails/StockDetails.js';
 import StockChart from '../stockchart/StockChart.js';
 import StockChartNav from '../stockchartnav/StockChartNav';
 import StockHeader from '../stockheader/StockHeader.js';
-import StockNews from '../stocknews/StockNews.js';
+// import StockNews from '../stocknews/StockNews.js';
+import News from '../stocknews/News.js';
 import LineChart from '../linechart/LineChart.js';
 import './stock.css';
 
@@ -18,8 +19,6 @@ class Stock extends Component {
 		this.state = {
 			data: {}
 		}
-        
-        //const [val, setVal] = 
 	}
 	
 	render() {
@@ -46,7 +45,8 @@ class Stock extends Component {
                     <StockDetails />
                 </div>
                 <div className="row">
-                    <StockNews />
+                    {/* <StockNews /> */}
+                    <News />
                 </div>
             </div>
 

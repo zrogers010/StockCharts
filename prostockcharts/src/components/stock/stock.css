@@ -5,14 +5,14 @@
 /* Create two equal columns that floats next to each other */
 .column-chart {
     float: left;
-    width: 65%;
+    width: 60%;
     padding: 10px;
     height: auto;
 }
 
 .column-stats {
     float: right;
-    width: 35%;
+    width: 40%;
     padding: 10px;
     height: auto;
 }

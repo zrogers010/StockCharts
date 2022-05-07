@@ -1,28 +1,35 @@
-.linebar-nav-bar-container-light {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    width: 100%;
-    padding: 15px;
-    height: 60px;
-  }
-  
 .linechart-nav-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
     width: 100%;
+    font-size: small;
+    font-family: verdana, arial;
+}
+  
+.linechart-nav {
     list-style-type: none;
-    padding: 5px;
-    margin-left: 10px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
 }
-.linechart-period {
-    font-size: 12px;
-    margin-right: 10px;
-    font-weight: bold;
+  
+.linechart-nav-item {
+    float: left;
 }
+  
+.linechart-nav-item a {
+    display: block;
+    color: #293241;
+    text-align: center;
+    padding: 5px 6px;
+    text-decoration: none;
+}
+  
+.linechart-nav-item a:hover {
+    background-color: #666;
+}
+
 .adv-chart {
     float: right;
+    font-family: verdana, arial;
+    color: #333;
 }

@@ -1,11 +1,17 @@
 .stock-details {
     display: block;
+    width: 100%;
     font-family: verdana, arial;
-    font-size: small;
+    padding: 10px;
+    color: #293241;
 }
+
+.stock-about-name {
+    font-size: medium;
+}
+
 .stock-desc {
-    margin: 2px;
-    padding: 2px;
+    font-size: small;
 }
 .wrapper {
     display: grid;

@@ -27,9 +27,11 @@ class StockAbout extends Component {
 	render() {
 		return (
 			<div className="stock-details">
-				<h2>About {this.state.data.companyName}</h2>
-                <div className='stock-desc'>
-					{this.state.data.description}
+				<div className="stock-about-name">
+					<p>About {this.state.data.companyName}</p>
+				</div>
+                <div className="stock-desc">
+					<p>{this.state.data.description}</p>
 				</div>
 				<div className="wrapper">
 					<div>
@@ -37,7 +39,7 @@ class StockAbout extends Component {
 							<div className="stats-name">CEO</div>
 						</span>
 						<span>
-							<div>{this.state.data.ceo}</div>
+							<div className="stats-item">{this.state.data.ceo}</div>
 						</span>
 					</div>
 					<div>
@@ -45,7 +47,7 @@ class StockAbout extends Component {
 							<div className="stats-name">Employees</div>
 						</span>
 						<span>
-							<div>{numFormat.nFormatter(this.state.data.employees, 3)}</div>
+							<div className="stats-item">{numFormat.nFormatter(this.state.data.employees, 3)}</div>
 						</span>
 					</div>
 					<div>
@@ -53,7 +55,7 @@ class StockAbout extends Component {
 							<div className="stats-name">Headquarters</div>
 						</span>
 						<span>
-							<div>{this.state.data.headquarters}</div>
+							<div className="stats-item">{this.state.data.headquarters}</div>
 						</span>
 					</div>
 					<div>
@@ -61,7 +63,7 @@ class StockAbout extends Component {
 							<div className="stats-name">Industry & Sector</div>
 						</span>
 						<span>
-							<div>{this.state.data.industry}</div>
+							<div className="stats-item">{this.state.data.industry}</div>
 						</span>
 					</div>
 				</div>	

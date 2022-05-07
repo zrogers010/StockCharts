@@ -12,8 +12,8 @@ class StockNav extends Component {
         const newsUrl = "/stocks/" + symbol + "/news";
         const optionsUrl = "/stocks/" + symbol + "/options";
 		return (
-			<div className="nav-bar-container-light">
-				<ul className="stock-nav-bar">
+			<div className="stock-nav-bar">
+				<ul className="stock-nav">
                     {/* <li className="stock-nav-item">
 						<Link to={summaryUrl} className="link-light">
 							 <span>{symbol.toUpperCase()}</span> Summary |
@@ -21,22 +21,22 @@ class StockNav extends Component {
 					</li> */}
 					<li className="stock-nav-item">
 						<Link to={summaryUrl} className="link-light">
-							Summary |
+							Summary
 						</Link>
 					</li>     
 					<li className="stock-nav-item">
 						<Link to={chartUrl} className="link-light">
-							Chart |
+							Chart
 						</Link>
 					</li>                    
 					<li className="stock-nav-item">
 						<Link to={newsUrl} className="link-light">
-							News |
+							News
 						</Link>
 					</li>
 					<li className="stock-nav-item">
 						<Link to={optionsUrl} className="link-light">
-							Options 
+							Options
 						</Link>
 					</li>
 				</ul>

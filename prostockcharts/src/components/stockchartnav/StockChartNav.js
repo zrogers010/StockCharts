@@ -9,18 +9,18 @@ class StockChartNav extends Component {
         const symbol = this.props.params.symbol;
         const chartUrl = "/stocks/" + symbol + "/chart";
 		return (
-			<div className="linechart-nav-bar-container-light">
-				<ul className="linechart-nav-bar">
-                    <li className="linechart-period">
+			<div className="linechart-nav-bar">
+				<ul className="linechart-nav">
+                    <li className="linechart-nav-item">
                         1d |
 					</li>
-                    <li className="linechart-period">
+                    <li className="linechart-nav-item">
                         5d |
 					</li>
-                    <li className="linechart-period">
+                    <li className="linechart-nav-item">
                         1m |
 					</li>
-                    <li className="linechart-period">
+                    <li className="linechart-nav-item">
                         6m
 					</li>
 					<li className="adv-chart">

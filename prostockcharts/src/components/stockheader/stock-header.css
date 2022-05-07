@@ -1,0 +1,14 @@
+.stock-header {
+    color: #293241;
+    font-family: verdana, arial;
+    padding-left: 10px;
+
+}
+
+.company-name {
+    font-size: medium;
+}
+
+.company-quote {
+    font-size: small;
+}

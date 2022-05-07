@@ -26,9 +26,9 @@ class StockStats extends Component {
 		const intlNumFormat = new Intl.NumberFormat('en-US');
 		return (
 			<div className="stock-stats">
-				<h2>Key statistics</h2>
+				<p className="key-stats">Key Statistics</p>
 				<div className="wrapper">
-					<div className="market-cap">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Market cap</div>
 						</span>
@@ -36,7 +36,7 @@ class StockStats extends Component {
 							<div>{numFormat.nFormatter(this.state.data.marketCap, 2)}</div>
 						</span>
 					</div>
-					<div className="pe-ratio">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">P/E ratio</div>
 						</span>
@@ -44,7 +44,7 @@ class StockStats extends Component {
 							<div>{((this.state.data.peRatio) ? this.state.data.peRatio : 'N/A')}</div>
 						</span>
 					</div>
-					<div className="dividend-yield">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Dividend yield</div>
 						</span>
@@ -52,7 +52,7 @@ class StockStats extends Component {
 							<div>N/A</div>
 						</span>
 					</div>
-					<div className="average-volume">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Average volume</div>
 						</span>
@@ -61,7 +61,7 @@ class StockStats extends Component {
 						</span>
 					</div>
 					
-					<div className="high-price">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">High today</div>
 						</span>
@@ -69,7 +69,7 @@ class StockStats extends Component {
 							<div>${intlNumFormat.format(this.state.data.high, 2)}</div>
 						</span>
 					</div>
-					<div className="low-price">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Low today</div>
 						</span>
@@ -77,7 +77,7 @@ class StockStats extends Component {
 							<div>${intlNumFormat.format(this.state.data.low, 2)}</div>
 						</span>
 					</div>
-					<div className="open-price">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Open price</div>
 						</span>
@@ -85,7 +85,7 @@ class StockStats extends Component {
 							<div>${intlNumFormat.format(this.state.data.open, 2)}</div>
 						</span>
 					</div>
-					<div className="volume">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Volume</div>
 						</span>
@@ -93,7 +93,7 @@ class StockStats extends Component {
 							<div>${numFormat.nFormatter(this.state.data.volume, 2)}</div>
 						</span>
 					</div>
-					<div className="year-high">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">52 Week high</div>
 						</span>
@@ -101,7 +101,7 @@ class StockStats extends Component {
 							<div>${intlNumFormat.format(this.state.data.week52High, 2)}</div>
 						</span>
 					</div>
-					<div className="year-low">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">52 Week low</div>
 						</span>
@@ -109,7 +109,7 @@ class StockStats extends Component {
 							<div>${intlNumFormat.format(this.state.data.week52Low, 2)}</div>
 						</span>
 					</div>
-					<div className="earnings">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Next earnings date</div>
 						</span>
@@ -117,7 +117,7 @@ class StockStats extends Component {
 							<div>{}</div>
 						</span>
 					</div>
-					<div className="rating">
+					<div className="stats-item">
 						<span className="bold">
 							<div className="stats-name">Buy/Sell rating</div>
 						</span>
