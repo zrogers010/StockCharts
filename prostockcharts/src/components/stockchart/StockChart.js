@@ -7,9 +7,9 @@ import './stock-chart.css';
 class StockChart extends Component {
     render() {
         return (
-            <div>
+            <div className="stockchart-container">
                 <StockNav />
-                <div className='chart'>
+                <div className="chart">
                     <TradingViewWidget
                     symbol={this.props.params.symbol}
                     theme={Themes.DARK}

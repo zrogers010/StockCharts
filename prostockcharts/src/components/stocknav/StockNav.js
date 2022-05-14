@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from '../util/withRouter';
 import './stocknav.css'
+import StockHeader from '../stockheader/StockHeader.js';
 
 class StockNav extends Component {
 
@@ -14,31 +15,35 @@ class StockNav extends Component {
 		return (
 			<div className="stock-nav-bar">
 				<ul className="stock-nav">
+					{/* <li className="stock-nav-item">
+						<StockHeader />
+					</li> */}
                     {/* <li className="stock-nav-item">
 						<Link to={summaryUrl} className="link-light">
 							 <span>{symbol.toUpperCase()}</span> Summary |
 						</Link>
 					</li> */}
 					<li className="stock-nav-item">
+						<Link to={chartUrl} className="link-light">
+							Advanced Chart
+						</Link>
+					</li>        
+					<li className="stock-nav-item">
 						<Link to={summaryUrl} className="link-light">
 							Summary
 						</Link>
 					</li>     
-					<li className="stock-nav-item">
-						<Link to={chartUrl} className="link-light">
-							Chart
-						</Link>
-					</li>                    
+            
 					<li className="stock-nav-item">
 						<Link to={newsUrl} className="link-light">
-							News
+							Headlines
 						</Link>
 					</li>
-					<li className="stock-nav-item">
+					{/* <li className="stock-nav-item">
 						<Link to={optionsUrl} className="link-light">
 							Options
 						</Link>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 		)

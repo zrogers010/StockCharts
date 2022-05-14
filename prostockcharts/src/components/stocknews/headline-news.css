@@ -1,0 +1,226 @@
+.news-home-container{
+    width: 98%;
+    min-width: 550px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+} 
+
+ul.news-container {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+li.news-container:after {
+    clear: both;
+}
+
+a.news-container {
+    color: #333;
+}
+
+a.news-container:hover {
+    /* background-color: #999; */
+    color: #111;
+}
+
+.news-home-headline {
+    float: center;
+    color: #293241;
+    display: block;
+    font-family: verdana, arial;
+    font-size: medium;
+    font-weight: bold;
+    margin: 10px;
+    padding-top: 10px;
+}
+
+.article-home {
+    list-style-type: none;
+    padding: 0;
+    font-family: verdana, arial;
+    overflow: hidden;
+    border-bottom: 1px solid #293241;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    justify-content: center;
+    color: #293241;
+}
+
+.headline-article-home {
+    list-style-type: none;
+    padding: 0;
+    font-family: verdana, arial;
+    overflow: hidden;
+    border-bottom: 1px solid #293241;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    justify-content: center;
+    color: #293241;
+}
+
+.article-home-left {
+    float: left;
+    width: 30%;
+    max-width: 200px;
+    height: auto;
+}
+
+.headline-article-home-left {
+    float: left;
+    width: 50%;
+    max-width: 300px;
+    min-width: 280px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.article-home-right {
+    float: left;
+    width: 70%;
+    min-width: 400px;
+    height: auto;
+}
+
+.headline-article-home-right {
+    float: left;
+    width: 50%;
+    /* min-width: 500px; */
+    height: auto;
+}
+
+.article-home-image {
+    display: block;
+    padding: 2px;
+    width: 180px;
+}
+
+.article-home-title {
+    display: block;
+    color: #293241;
+    text-align: left;
+    width: 90% !important;
+    height: auto;
+    padding: 2px;
+    font-family: verdana, arial;
+    font-size: small;
+}
+
+.headline-article-home-title {
+    display: block;
+    color: #293241;
+    text-align: left;
+    width: 90% !important;
+    height: auto;
+    padding: 2px;
+    font-family: verdana, arial;
+    font-size: small;
+}
+
+.headline-article-home-title {
+    display: block;
+    color: #293241;
+    text-align: left;
+    width: 90% !important;
+    height: auto;
+    padding: 2px;
+    font-family: verdana, arial;
+    font-size: small;
+}
+
+.article-home-title a {
+    color: #293241;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.headline-article-home-title a {
+    color: #293241;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.article-home-title a:hover {
+    text-decoration: underline;
+}
+
+.article-home-summary {
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #293241; */
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 18px;     /* fallback */
+    max-height: 40px;      /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+
+    padding: 2px;
+    font-family: verdana, arial;
+    font-size: small;
+} 
+
+.headline-article-home-summary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 18px;     /* fallback */
+    max-height: 40px;      /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+
+    padding: 2px;
+    font-family: verdana, arial;
+    font-size: small;
+}
+
+.article-home-source {
+    display: block;
+    font-size: x-small;
+    padding: 2px;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    color: #333;
+}
+
+.headline-article-home-source {
+    display: block;
+    font-size: x-small;
+    padding: 2px;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    color: #333;
+}
+
+.article-home-date {
+    display: block;
+    font-size: x-small;
+    padding: 2px;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    color: #333;
+}
+
+.headline-article-home-date {
+    display: block;
+    font-size: x-small;
+    padding: 2px;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}

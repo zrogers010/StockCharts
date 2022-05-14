@@ -20,18 +20,28 @@ class Navbar extends Component {
 						</Link>
 					</li>
 					<li className="main-nav-item">
-						<Link to="/" className="link-light">
+						<Link to="/charts" className="link-light">
 							Charts
 						</Link>
 					</li>
 					<li className="main-nav-item">
+						<Link to="/screener" className="link-light">
+							Screener
+						</Link>
+					</li>
+					<li className="main-nav-item">
+						<Link to="/crypto" className="link-light">
+							Crypto
+						</Link>
+					</li>
+					{/* <li className="main-nav-item">
 						<Link to="/" className="link-light">
 							News
 						</Link>
 					</li>
 					<li className="main-nav-item">
 						<Link to="/about" className="link-light">
-							Crypto
+							About
 						</Link>
 					</li>
 					<li className="main-nav-item">
@@ -39,6 +49,7 @@ class Navbar extends Component {
 							About
 						</Link>
 					</li>
+					*/}
 					<li className="main-nav-item search-box">
 						<Search />
 					</li>

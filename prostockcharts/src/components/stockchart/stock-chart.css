@@ -1,3 +1,10 @@
+
+.stockchart-container {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .chart {
     height: 600px;
+    padding: 10px;
 }

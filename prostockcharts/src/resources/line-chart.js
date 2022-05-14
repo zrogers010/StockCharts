@@ -4,7 +4,6 @@ export const lineChart = {
 
 	getChartData: (symbol, callback) => {
 		const url = lineChart.chartDataURL(symbol)
-		console.log("Chart URL: ", url);
 		fetch(url)
 		.then((response) => response.json())
 		.then((data) => {

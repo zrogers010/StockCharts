@@ -35,6 +35,16 @@ class StockAbout extends Component {
 				</div>
 				<div className="wrapper">
 					<div>
+                        <span className="bold">
+							<div className="stats-name">Website</div>
+						</span>
+						<span>
+							<div className="stats-item">
+								<a href={this.state.data.website}> { this.state.data.website } </a>
+							</div>
+						</span>
+					</div>
+					<div>
 						<span className="bold">
 							<div className="stats-name">CEO</div>
 						</span>

@@ -2,20 +2,28 @@
     display: block;
     width: 100%;
     font-family: verdana, arial;
-    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     color: #293241;
+    border-top: 1px solid #293241;
+    border-bottom: 1px solid #293241;
 }
 
 .stock-about-name {
     font-size: medium;
+    font-weight: bold;
+    color: #293241;
+    font-family: verdana, arial;
+    text-decoration: underline;
 }
 
 .stock-desc {
     font-size: small;
 }
 .wrapper {
+    text-align: center;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(50px, auto);
 }
@@ -25,26 +33,26 @@
 .ceo {
     grid-column: 1;
     grid-row: 1;
-    margin: 2px;
-    padding: 2px;
+    margin: 1px;
+    padding: 1px;
 }
 .employees {
     grid-column: 2;
     grid-row: 1;
-    margin: 2px;
-    padding: 2px;
+    margin: 1px;
+    padding: 1px;
 }
 .headquarters {
     grid-column: 3;
     grid-row: 1;
-    margin: 2px;
-    padding: 2px;
+    margin: 1px;
+    padding: 1px;
 }
 .founded {
     grid-column: 4;
     grid-row: 1;
-    margin: 2px;
-    padding: 2px;
+    margin: 1px;
+    padding: 1px;
 }
 .bold {
     font-weight: bold;

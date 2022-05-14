@@ -2,13 +2,14 @@
 .main-nav-bar {
   width: 100%;
   min-width: 800px;
-  font-size: large;
   font-family: verdana, arial;
+  padding-right: 10px;
+  border-bottom: 1px solid #01497c;
 }
 
 .main-nav {
   list-style-type: none;
-  margin: 0;
+  margin: 10px;
   padding: 0;
   overflow: hidden;
   background-color: white;
@@ -18,13 +19,15 @@
 
 .main-nav-item {
   float: left;
+  font-size: large;
+  vertical-align: bottom;
 }
 
 .main-nav-item a {
   display: block;
   color: #01497c;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px;
   text-decoration: none;
 }
 
@@ -39,16 +42,16 @@
 }
 
 .logo {
+  font-size: x-large !important;
   font-weight: bolder;
+  vertical-align: center;
 }
+
 
 /* search bar */
 .search-input {
   color: #01497c;
-  width: 500px;
-  margin:5px auto;
-  font-size: large;
-  font-family: verdana, arial;
+  width: 400px;
 }
 
 form {
@@ -62,7 +65,7 @@ input {
   color: #01497c;
   width: 300px;
   margin: 5px;
-  font-size: large;
+  font-size: medium;
   font-family: verdana, arial;
 }
 
@@ -77,45 +80,3 @@ button {
   font-size: medium;
   font-family: verdana, arial;
 }
-
-/*
-ul.main-nav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li.main-nav {
-  float: left;
-}
-
-li.main-nav a.main-nav {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.main-nav-bar li a:hover {
-  background-color: #666;
-}
-
-.main-nav-bar {
-  width: 100%;
-  font-size: large;
-  background-color: #999;
-}
-
-.search-box {
-  float: right;
-  text-align: center;
-  vertical-align: center;
-}
-
-.logo {
-  color: #333;
-  font-weight: bolder;
-}
-*/

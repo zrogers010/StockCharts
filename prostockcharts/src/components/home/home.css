@@ -1,0 +1,11 @@
+.home-container-left {
+    width: 65%;
+    min-width: 500px;
+    float: left;
+}
+
+.home-container-right {
+    width: 35%;
+    min-width: 300px;
+    float: right;
+}

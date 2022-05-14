@@ -5,10 +5,11 @@
     font-size: small;    
 }
 .key-stats {
-    color: #01497c;
+    color: #293241;
     font-family: verdana, arial;
     font-size: medium;
     font-weight: bold;
+    text-decoration: underline;
 }
 .wrapper {
     display: grid;
@@ -33,4 +34,8 @@
     font-family: verdana, arial;
     font-size: small;
     font-weight: bold;
+}
+
+.stats-value {
+    text-align: bottom;
 }

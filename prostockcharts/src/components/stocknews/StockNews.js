@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { withRouter } from '../util/withRouter';
-import { stockNews } from '../../resources/stock-news.js';
+import { getNews } from '../../resources/get-news.js';
 import './stock-news.css';
 
-class StockNews extends Component {
+class News extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -18,50 +18,46 @@ class StockNews extends Component {
 	}
 		
 	componentDidMount() {
-		stockNews.getLatestNews(this.props.params.symbol, this.applyData.bind(this))
+		getNews.getLatestNews(this.props.params.symbol, this.applyData.bind(this))
 	}
 
 	render() {
 	    return (
             <>
-			<div className = "stock-news">
-				<h2>Headlines</h2>
+			<div className="news-container">
+			    <div className="news-headline">
+                    Headlines
+                </div>
 				<ul>
-				{this.state.data.map((d) => {
-					return(
-						<li key={d.url}>
-                            <div className='article'>
-                                <div className='article-left'>
-                                    <div className="article-image">
-                                        <img src={ d.image } width="220" height="124"/>
+                    {this.state.data.map((d) => {
+                        return(
+                            <li key={d.url}>
+                                <div className="article">
+                                    <div className="article-left">
+                                        <div className="article-image">
+                                            <img src={ d.image } width="180" height="90" image-rendering="smooth"/>
+                                        </div>
+                                    </div>
+                                    <div className="article-right">
+                                            <div className="article-title">
+                                                <a href={d.url}>{ d.headline }</a>
+                                            </div>
+                                        <div className="article-source">
+                                            { d.source }
+                                        </div>
+                                        <div className="article-date">
+                                            { d.date }
+                                        </div>
+                                        <div className="article-summary">
+                                            { d.summary }
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='article-right'>
-                                    <div className="article-headline">
-                                        <span>{ d.headline }</span>
-                                    </div>
-                                    <div className="article-source">
-                                        <span>{ d.source }</span>
-                                    </div>
-                                    <div className="article-date">
-                                        <span>{ d.date }</span>
-                                    </div>
-                                    <div className="article-summary">
-                                        <span>{ d.summary }</span>
-                                    </div>
-                                    <div className="article-url">
-                                        <span>{ d.url }</span>
-                                    </div>
-                                </div>
-                            </div>
-						</li>
-					)
-				
-				})}
-					{/*
-					{this.state.data.map(d => (<li key={d.headline}>{d.url}</li>))} 
-					*/}
+                            </li>
+                        )
+                    })}
 				</ul>
+            <div className='buffer'> </div>
             </div>
 			</>
         )
@@ -69,4 +65,4 @@ class StockNews extends Component {
 }
 
 
-export default withRouter(StockNews);
+export default withRouter(News);

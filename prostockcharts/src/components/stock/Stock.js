@@ -4,12 +4,11 @@ import { withRouter } from '../util/withRouter';
 import StockNav from '../stocknav/StockNav.js';
 import StockStats from '../stockstats/StockStats.js';
 import StockDetails from '../stockdetails/StockDetails.js';
-import StockChart from '../stockchart/StockChart.js';
-import StockChartNav from '../stockchartnav/StockChartNav';
+import StockLineChart from '../stocklinechart/StockLineChart.js';
 import StockHeader from '../stockheader/StockHeader.js';
-// import StockNews from '../stocknews/StockNews.js';
-import News from '../stocknews/News.js';
-import LineChart from '../linechart/LineChart.js';
+import StockNews from '../stocknews/StockNews.js';
+// import News from '../stocknews/News.js';
+import StockScreener from '../screener/Screener.js'
 import './stock.css';
 
 class Stock extends Component {
@@ -31,10 +30,7 @@ class Stock extends Component {
                 <div className="row">
                     <StockNav />
                     <div className="column-chart">
-                        {/* <h2>Column 1</h2> */}
-                        {/* <StockChart symbol={this.state.data} /> */}
-                        <StockChartNav />
-                        <LineChart />
+                        <StockLineChart />
                     </div>
                     <div className="column-stats">
                         {/* <h2>Column 2</h2> */}
@@ -45,8 +41,7 @@ class Stock extends Component {
                     <StockDetails />
                 </div>
                 <div className="row">
-                    {/* <StockNews /> */}
-                    <News />
+                    <StockNews />
                 </div>
             </div>
 

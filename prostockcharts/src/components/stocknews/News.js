@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { withRouter } from '../util/withRouter';
 import { getNews } from '../../resources/get-news.js';
+//import StockHeader from '../stockheader/StockHeader.js';
+import StockNav from '../stocknav/StockNav.js';
 import './news.css';
 
 class News extends Component {
@@ -15,7 +17,6 @@ class News extends Component {
 		this.setState({
 			data: data
 		})
-		console.log(" NEWS ", this.state.data)
 	}
 		
 	componentDidMount() {
@@ -26,17 +27,19 @@ class News extends Component {
 	    return (
             <>
 			<div className="news-container">
-			    <div className="news-headline">
-                    Headlines
+                {/* <StockHeader /> */}
+                <StockNav />
+                <div className="news-headline">
+                    {this.props.params.symbol.toUpperCase()} Headlines
                 </div>
-				<ul>
+                <ul>
                     {this.state.data.map((d) => {
                         return(
                             <li key={d.url}>
                                 <div className="article">
                                     <div className="article-left">
                                         <div className="article-image">
-                                            <img src={ d.image } width="220" height="124" image-rendering="smooth"/>
+                                            <img src={ d.image } width="180" height="90" image-rendering="smooth"/>
                                         </div>
                                     </div>
                                     <div className="article-right">
@@ -57,8 +60,8 @@ class News extends Component {
                             </li>
                         )
                     })}
-				</ul>
-            <div className='buffer'> </div>
+                </ul>
+                <div className='buffer'> </div>
             </div>
 			</>
         )

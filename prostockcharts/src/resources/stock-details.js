@@ -30,6 +30,11 @@ export const stockDetails = {
 		formattedData.employees = data.employees
 		formattedData.headquarters = data.city + ", " + data.state
 		formattedData.country = data.country
+		formattedData.address = data.address
+		formattedData.city = data.city
+		formattedData.state = data.state
+		formattedData.country = data.country
+		formattedData.tags = data.tags
 		
 		return formattedData
 	}

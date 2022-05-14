@@ -5,7 +5,6 @@ export const stockNews = {
 
 	getLatestNews: (symbol, callback) => {
 		const url = stockNews.latestNewsURL(symbol)
-		console.log(url);
 		fetch(url)
 		.then((response) => response.json())
 		.then((data) => {
