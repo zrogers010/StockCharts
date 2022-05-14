@@ -28,8 +28,6 @@ class News extends Component {
 	    return (
             <>
 			<div className="news-home-container">
-			    <div className="news-home-headline">
-                </div>
                 <div>
                     <ul>
 
