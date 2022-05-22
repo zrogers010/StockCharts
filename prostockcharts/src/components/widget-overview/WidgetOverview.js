@@ -14,7 +14,7 @@ class WidgetOverview extends Component {
             "showChart": true,
             "locale": "en",
             "width": "100%",
-            "height": 800,
+            "height": 600,
             "largeChartUrl": "http://localhost:3000/charts",
             "isTransparent": false,
             "showSymbolLogo": false,

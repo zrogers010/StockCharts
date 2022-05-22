@@ -22,10 +22,10 @@ function App() {
               element={<Home />}
             />
             {/* Charts Page */}
-            {/* <Route 
-              path="/chart" 
+            <Route 
+              path="/charts" 
               element={<StockChart />}
-            /> */}
+            />
             {/* Screener Page */}
             <Route 
               path="/screener" 
