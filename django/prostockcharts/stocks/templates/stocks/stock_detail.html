@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "news/article.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    Stock Details for {{ symbol }}
+{% endblock %}
+
+{% block content %}
+    <h2 class="page-title">{{ symbol }} {{ name }}</h2>
+
+    {% if name is not None %}
+        <h4>{{ sector }} - {{ industry }}</h4>
+        {% include "stocks/includes/stock_chart.html" %}
+        {% include "stocks/includes/stock_news.html" %}
+        <a href = "{% url 'news:news-symbol-page' symbol %}">See more news results for {{ symbol }}</a>
+    {% else %}
+        <p>Stock not found!</p>
+    {% endif %}
+
+{% endblock %}
+

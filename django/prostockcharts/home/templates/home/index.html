@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Pro Stock Charts
+{% endblock %}
+
+{% block content %}
+
+    <section id="welcome">
+        <p>Hi, this is my blog!</p>
+    </section>
+
+    {% include "stocks/stocks.html" %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+        
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Date');
+                data.addColumn('number', 'Close');
+                data.addRows({{ data|safe }});
+                
+                var options = {
+                    'title':"{{symbol}}",
+                    'width':200,
+                    'height':140
+                };
+
+                // Instantiate and draw the chart
+                var chart = new google.visualization.LineChart(document.getElementById('chart-div-{{symbol}}'));
+                chart.draw(data, options);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="chart-div-{{symbol}}">{{symbol}}</div>
+    </body>
+</html>

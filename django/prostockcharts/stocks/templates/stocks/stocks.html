@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Stocks
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "stocks/stocks.css" %}" />
+{% endblock %}
+
+{% block content %}
+    {% include "stocks/includes/stock_highlights.html" %}
+    {% include "news/news.html" %}
+
+{% endblock %}

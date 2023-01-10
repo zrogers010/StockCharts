@@ -1,0 +1,10 @@
+<form action="search" method="post">
+    {% csrf_token %}
+    <input type="text" list="search-symbols" name="search-stock" placeholder="search" class="form-control" style="width: 20rem;">
+    <datalist id="search-symbols">
+        {% for stock in stocks %}
+            <option value="{{ stock.symbol }}"></option>
+        {% endfor %}
+    </datalist>
+    <input type="submit" name="submit">
+</form> 

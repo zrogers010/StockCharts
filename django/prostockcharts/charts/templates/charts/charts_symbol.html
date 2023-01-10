@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Charts
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "charts/advanced_charts.css" %}" />
+{% endblock %}
+
+{% block content %}
+    {% include "charts/includes/advanced_chart.html"%}
+{% endblock %}

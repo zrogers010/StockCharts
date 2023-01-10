@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    News
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "news/article.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <section id="all-news">
+        <h2 class="page-title">News for 
+            <a href = "{% url 'stocks:stock-detail-page' symbol %}">{{ symbol }}</a>
+        </h2>
+        <ul>
+            {% for article in news %}
+                {% include "news/includes/article.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

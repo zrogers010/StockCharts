@@ -1,0 +1,22 @@
+<ul style="list-style: none; overflow: hidden; display: flex; justify-content: center" class="stock-highlight-items">
+    <li style="margin: 2px">
+        <a href="{% url "stocks:stocks-page" %}SPY">
+            {% include "stocks/includes/stock_googchart.html" with data=chart_data.SPY symbol="SPY" %}
+        </a>
+    </li>
+    <li style="margin: 2px">
+        <a href="{% url "stocks:stocks-page" %}QQQ">
+            {% include "stocks/includes/stock_googchart.html" with data=chart_data.QQQ symbol="QQQ" %}
+        </a>
+    </li>
+    <li style="margin: 2px">
+        <a href="{% url "stocks:stocks-page" %}DIA">
+            {% include "stocks/includes/stock_googchart.html" with data=chart_data.DIA symbol="DIA" %}
+        </a>
+    </li>
+    <li style="margin: 2px">
+        <a href="{% url "stocks:stocks-page" %}GLD">
+            {% include "stocks/includes/stock_googchart.html" with data=chart_data.GLD symbol="GLD" %}
+        </a>
+    </li>
+</ul>
