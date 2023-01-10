@@ -1,5 +1,5 @@
-ProStockCharts.com
+# ProStockCharts.com
 Version 1.1.0
-Built with Django
+Built with Django.
 
 Copywrite 2022. All rights reserved.
